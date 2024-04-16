@@ -2,13 +2,16 @@ package mk.ukim.finki.labbiblioteka.web.rest;
 
 import mk.ukim.finki.labbiblioteka.model.Book;
 import mk.ukim.finki.labbiblioteka.model.dto.BookDto;
+import mk.ukim.finki.labbiblioteka.model.enumeration.Category;
 import mk.ukim.finki.labbiblioteka.service.BookService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = {"http://localhost:3000", "http://localhost:3001"})
 @RequestMapping("/api/books")
 public class BookRestController {
     private final BookService bookService;
@@ -20,6 +23,10 @@ public class BookRestController {
     @GetMapping
     public List<Book> findAll() {
         return bookService.allBooks();
+    }
+    @GetMapping("/{id}")
+    public Book findBookById(@PathVariable Long id) {
+        return bookService.findBookById(id);
     }
 
     //add
@@ -69,6 +76,12 @@ public class BookRestController {
             return ResponseEntity.ok().build();
         }
         return ResponseEntity.badRequest().build();
+    }
+
+    @GetMapping("/categories")
+    public List<Category> listAllCategories() {
+        Category[] category = Category.values();
+        return Arrays.stream(category).toList();
     }
 
 }
