@@ -24,6 +24,7 @@ public class BookRestController {
     public List<Book> findAll() {
         return bookService.allBooks();
     }
+
     @GetMapping("/{id}")
     public Book findBookById(@PathVariable Long id) {
         return bookService.findBookById(id);
@@ -82,6 +83,15 @@ public class BookRestController {
     public List<Category> listAllCategories() {
         Category[] category = Category.values();
         return Arrays.stream(category).toList();
+    }
+
+    @GetMapping("/search/{name}")
+    public List<Book> searchByName(@PathVariable String name) {
+        if (name.equals("") || name==null || name.isEmpty()){
+            return bookService.allBooks();
+        }
+        return bookService.findAllByNameSearch(name);
+
     }
 
 }

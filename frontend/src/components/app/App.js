@@ -21,7 +21,8 @@ class App extends Component {
             books: [],
             selectedBook: {},
             authors: [],
-            categories: []
+            categories: [],
+            searchBook: []
         }
     }
 
@@ -62,6 +63,8 @@ class App extends Component {
                                                    onEdit={this.getBook}
                                                    onRent={this.rentBook}
                                                    onMarkUsability={this.markUsability}
+                                                   onSearchBooks={this.SearchBook}
+                                                   onEmptyName={this.loadBooks}
                                 />}
                                 // element={<Test books={this.state.books}/>}
                             />
@@ -104,6 +107,15 @@ class App extends Component {
                     books: data.data
                 })
             })
+    }
+    SearchBook = (name) => {
+        bookRepository.fetchBooksBySearchName(name)
+            .then((data) => {
+                this.setState({
+                    books: data.data
+                })
+            })
+
     }
     deleteBook = (id) => {
         bookRepository.deleteBook(id)

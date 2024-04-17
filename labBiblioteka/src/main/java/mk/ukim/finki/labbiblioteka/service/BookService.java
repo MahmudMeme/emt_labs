@@ -29,4 +29,6 @@ public interface BookService {
 
     void rentBook(Long id);
     void refreshMaterializedView();
+
+    List<Book> findAllByNameSearch(String name);
 }

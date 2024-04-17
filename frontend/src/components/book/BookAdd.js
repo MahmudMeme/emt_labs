@@ -47,17 +47,6 @@ const BookAdd = (props) => {
                                onChange={handleChange}
                         />
                     </div>
-                    {/*<div className="form-group">*/}
-                    {/*    <label htmlFor="category">category</label>*/}
-                    {/*    <input type="text"*/}
-                    {/*           className="form-control"*/}
-                    {/*           id="category"*/}
-                    {/*           name="category"*/}
-                    {/*           placeholder="categry"*/}
-                    {/*           required*/}
-                    {/*           onChange={handleChange}*/}
-                    {/*    />*/}
-                    {/*</div>*/}
 
                     <div className="form-group">
                         <label>Category</label>
@@ -67,18 +56,6 @@ const BookAdd = (props) => {
                             )}
                         </select>
                     </div>
-
-                    {/*<div className="form-group">*/}
-                    {/*    <label htmlFor="category">Category</label>*/}
-                    {/*    <select name="category" id="category" className="form-control" onChange={handleChange}>*/}
-                    {/*        <option value="">Select Category</option>*/}
-                    {/*        {props.categories.map((category) => (*/}
-                    {/*            <option key={category.id} value={category.name}>*/}
-                    {/*                {category.name}*/}
-                    {/*            </option>*/}
-                    {/*        ))}*/}
-                    {/*    </select>*/}
-                    {/*</div>*/}
 
                     <div className="form-group">
                         <label>author</label>

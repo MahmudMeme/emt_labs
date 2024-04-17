@@ -33,11 +33,14 @@ const bookRepository = {
     fetchCategories: () => {
         return axios.get("/books/categories")
     },
-    fetchRentBook:(id)=>{
+    fetchRentBook: (id) => {
         return axios.post(`/books/rent/${id}`);
     },
-    fetchMarkUsability:(id)=>{
+    fetchMarkUsability: (id) => {
         return axios.post(`/books/changeUsable/${id}`);
+    },
+    fetchBooksBySearchName: (name) => {
+        return axios.get(`/books/search/${name}`);
     }
 }
 

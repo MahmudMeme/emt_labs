@@ -115,4 +115,12 @@ public class BookServiceImpl implements BookService {
     public void refreshMaterializedView() {
         booksPerCategoryViewRepository.refreshMaterializedView();
     }
+
+    @Override
+    public List<Book> findAllByNameSearch(String name) {
+        if (name==null || name.isEmpty()){
+            return bookRepository.findAll();
+        }
+        return bookRepository.findAllByNameContaining(name);
+    }
 }
